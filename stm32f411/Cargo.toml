@@ -1,0 +1,21 @@
+[package]
+name = "stm32f411-playground"
+version = "0.1.0"
+authors = ["Jonah Swain <jonahswain@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[profile.release]
+# optimize for size ('z' would optimize even more)
+opt-level = 's'
+# link with link time optimization (lto).
+lto = true
+# enable debugging in release mode.
+debug = true
+
+[dependencies]
+cortex-m = "0.6.1" # Cortex M CPU registers
+cortex-m-rt = "0.6.10" # Cortex M runtime (startup code)
+stm32f4 = {version = "0.8.0", features = ["stm32f411", "rt"]} # STM32F411 registers
+panic-halt = "0.2.0" # Halt program on panic
